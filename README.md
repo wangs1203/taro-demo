@@ -47,18 +47,22 @@ Taro + TypeScript + dva
 |   └── prod.js             打包时配置
 ├── src                     源码目录
 |   ├── assets              静态资源目录
+|   |   ├── fonts           fonts
+|   |   ├── images          图片目录
+|   |   ├── styles          样式目录
 |   ├── config              配置文件目录
+|   ├── constants           常量管理目录
 |   ├── models              dva models目录
 |   ├── pages               页面文件目录
 |   |   ├── demo            demo页面目录
 |   |   |   ├── index.tsx   demo页面逻辑
 |   |   |   └── index.scss  demo页面样式
-|   |   |   └── model.tsx   demo页model
-|   ├── servers             http相关目录
-|   ├── types               类型声明环境目录
-|   ├── utils               untils
+|   |   |   └── model.ts    demo页model
+|   |   |   └── service.ts  demo页service
+|   ├── services            http相关目录
+|   ├── typings             类型声明环境目录
+|   ├── utils               utils
 |   |   |   ├── dva.ts      引用dva
-|   ├── app.scss            项目总通用样式
 |   └── app.tsx             项目入口文件
 └── package.json
 ```
