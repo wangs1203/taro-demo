@@ -1,6 +1,23 @@
+const path = require('path');
+const devConf = require('./dev');
+const prodConf = require('./prod');
+
 const config = {
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src'),
+    'fonts': path.resolve(__dirname, '..', 'src/assets/fonts'),
+    'images': path.resolve(__dirname, '..', 'src/assets/images'),
+    'styles': path.resolve(__dirname, '..', 'src/assets/styles'),
+    'components': path.resolve(__dirname, '..', 'src/components'),
+    'config': path.resolve(__dirname, '..', 'src/config'),
+    'constants': path.resolve(__dirname, '..', 'src/constants'),
+    'models': path.resolve(__dirname, '..', 'src/models'),
+    'pages': path.resolve(__dirname, '..', 'src/pages'),
+    'services': path.resolve(__dirname, '..', 'src/services'),
+    'utils': path.resolve(__dirname, '..', 'src/utils')
+  },
   projectName: 'taro-demo',
-  date: '2019-8-26',
+  date: '2020-04-12',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -22,16 +39,13 @@ const config = {
         'transform-class-properties',
         'transform-object-rest-spread'
       ]
+    },
+    sass: {
+      resource: 'src/assets/styles/mixin.scss',
+      projectDirectory: path.resolve(__dirname, '..')
     }
   },
-  defineConstants: {
-  },
-  copy: {
-    patterns: [
-    ],
-    options: {
-    }
-  },
+  defineConstants: {},
   weapp: {
     module: {
       postcss: {
@@ -70,6 +84,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     module: {
       postcss: {
         autoprefixer: {
@@ -94,9 +109,9 @@ const config = {
   }
 }
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, devConf)
   }
-  return merge({}, config, require('./prod'))
+  return merge({}, config, prodConf)
 }

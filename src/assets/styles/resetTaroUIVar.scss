@@ -1,0 +1,18 @@
+$button-background-color-gradient-left: #ff9084;
+$button-background-color-gradient-right: #ff5462;
+
+$hd: 2 !default; // 基本单位
+
+/* Border Radius */
+$border-radius-sm: 2px * $hd;
+$border-radius-md: 4px * $hd;
+$border-radius-lg: 6px * $hd;
+
+/* Button */
+$at-button-height: 80px !default;
+$at-button-bg: linear-gradient(to right, #ff9084, #ff5462)!default;
+// $at-button-bg: linear-gradient(
+//   to right,
+//   $button-background-color-gradient-left,
+//   $button-background-color-gradient-right
+// )!default;

@@ -1,3 +1,4 @@
+import demo from 'pages/demo/model';
 import common from './common';
-import demo from '../pages/demo/model';
-export default [common,demo];
+
+export default [common, demo];

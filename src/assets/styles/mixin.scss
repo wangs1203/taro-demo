@@ -1,0 +1,138 @@
+/* colors
+-------------------------- */
+$color-primary: #d87182 !default;
+$color-dark: #333 !default;
+$color-dark2: #666 !default;
+$color-light: #888 !default;
+
+/* button-colors
+-------------------------- */
+$btn-active: #f26d83 !default;
+$btn-disabled: #ccc !default;
+
+$btn-disabled-1: mix(#fff, $btn-active, 70%) !default;
+
+/* 53a8ff */
+
+/* background-colors
+-------------------------- */
+$bg-color-base: #fff !default;
+// $bg-color-base: #f1f1f1 !default;
+$bg-color-light: #f9f9f9 !default; //页面浅灰背景&图片浅灰背景
+$bg-color-danger: #f9efef !default; //页面浅红背景&按钮边框
+$bg-color-panel: #ec5d75 !default;
+
+/* tag-colors
+-------------------------- */
+$tag-primary: #d87182 !default;
+$tag-dark: #555 !default;
+
+
+/* methods
+-------------------------- */
+// 背景图片地址和大小
+@mixin bg($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// 定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 定位上下居中
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 定位左右居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// 字体大小，颜色
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+// flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}
+
+@mixin bottom-line($c: #e6e6e6) {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid $c;
+  color: $c;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    transform: scaleY(0.333333333);
+  }
+}
+
+@mixin line($c: #c7c7c7, $border-radius: 0) {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  border: 1px solid $c;
+  color: $c;
+  transform-origin: left top;
+  @if ($border-radius != 0) {
+    border-radius: $border-radius * 2;
+  }
+
+  transform: scale(0.5);
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    @if ($border-radius != 0) {
+      border-radius: $border-radius * 3;
+    }
+
+    width: 300%;
+    height: 300%;
+    transform: scale(0.333333333);
+  }
+}
+
+// 一像素下边框
+@mixin border-bottom-1px($color: #c7c7c7) {
+  position: relative;
+
+  &::after {
+    @include bottom-line();
+  }
+}
+
+// 一像素边框
+@mixin border-1px($color: #c7c7c7, $border-radius: 0, $position: relative) {
+  position: $position;
+
+  &::after {
+    @include line($color, $border-radius);
+  }
+}
